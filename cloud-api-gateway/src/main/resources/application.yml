@@ -1,0 +1,22 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: currency-conversion-service-route
+          uri: lb://currency-conversion-service
+          predicates:
+            - Path=/currency-conversion-service/api/**
+        - id: stock-service-route
+          uri: lb://stock-service
+          predicates:
+            - Path=/stock-service/api/**

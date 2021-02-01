@@ -1,0 +1,21 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: currency-conversion-service
+  data:
+    rest:
+      basePath: /currency-conversion-service/api
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+exchange-rate-api:
+  url: https://v6.exchangerate-api.com/v6/{EXCHANGE_RATE_API_KEY}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
